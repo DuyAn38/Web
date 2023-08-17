@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <h2>Xác nhận xóa</h2>
+      <p>Bạn có chắc chắn muốn xóa "Sản phẩm"? " "{{ category.name }}"?</p>
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit">Xóa</button>
+        <a href="{% url 'manageProduct' %}">Hủy</a>
+      </form>
+</body>
+</html>

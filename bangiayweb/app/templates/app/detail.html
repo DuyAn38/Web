@@ -1,0 +1,100 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block category_context %}
+
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large"
+                                src="{{products.ImageURL}}" alt="">
+                        </div>
+                        <div class="product__details__pic__slider owl-carousel">
+                            <img data-imgbigurl="{{products.ImageURL}}"
+                                src="{{products.ImageURL}}" alt="">
+                            <img data-imgbigurl="{{products.ImageURL1}}"
+                                src="{{products.ImageURL1}}" alt="">
+                            <img data-imgbigurl="{{products.ImageURL2}}"
+                                src="{{products.ImageURL2}}" alt="">
+                            <img data-imgbigurl="{{products.ImageURL3}}"
+                                src="{{products.ImageURL3}}" alt="">
+                            <img data-imgbigurl="{{products.ImageURL4}}"
+                                src="{{products.ImageURL4}}" alt="">
+                        </div>
+            
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>{{products.name}}</h3>
+                        <div class="product__details__rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <div class="product__details__price">${{products.price | floatformat:2}}</div>
+                        <p>{{products.describe}}</p>
+                        <div class="product__details__quantity">
+                        </div>
+                        <div class="container">
+                            <h2>Size</h2>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                    29
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                                    30
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
+                                    31
+                                </label>
+                            </div>
+                        </div>
+
+                        {% comment %} <div class="container">
+                            <h2>Giới tính</h2>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                    Nam
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                                    Nữ
+                                </label>
+                            </div>
+                        </div> {% endcomment %}
+
+                        
+
+
+                        <button style="border: none" data-product={{products.id}} data-action="add" class="primary-btn add-btn update-btn ">Thêm vào giỏ hàng</button>
+                       
+                        <ul>
+                            <li><b>Tình trạng</b> <span>Còn hàng.</span></li>
+                            <li><b>GIao hàng</b> <span>2-5 ngày.</span></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+{% endblock category_context %}

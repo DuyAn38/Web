@@ -1,0 +1,95 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content_checkout %}
+    <div class="container">
+        <div class="row" style="width:100%">
+            <div class="col-md-5">
+
+                <div class="box-element" id="form-wrapper">
+                    <form id="form" method="POST" action="">
+                        {% csrf_token %}
+                        {% if form_show == "show" %}
+                            <div id="shipping-info" class="form-show">
+                            <h4>CHỌN ĐỊA CHỈ NGƯỜI DÙNG</h4>
+                                {% for address in allAddress %}
+                                    <div class="form-check p-2">
+                                        <input class="form-check-input" type="radio" name="address" id="address{{ forloop.counter }}" value="{{ forloop.counter }}"
+                                               data-firstname="{{ address.customer.first_name }}" data-address="{{ address.address }}" data-city="{{ address.city }}"
+                                               data-state="{{ address.state }}" data-mobile="{{ address.mobile }}">
+                                        <label class="form-check-label" for="address{{ forloop.counter }}">
+                                            Địa chỉ: {{ address.customer.first_name }} - {{ address.adress }} - {{ address.city }} - {{ address.state }} - {{ address.mobile }}
+                                        </label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                        {% endif %}
+                        <button id="submit-button" type="submit" class="btn primary-btn btn-sm"><a style="color: white" href="{% url 'address' %}">Submit</a></button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="box-element">
+{#                    <a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>#}
+                    <h3>Order Summary</h3>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Đơn Giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for item in items %}
+                          <tr>
+                            <td> <img style="height: 80px; width: auto;" src="{{item.product.ImageURL}}"/> </td>
+                            <td>{{item.product.name}}</td>
+                            <td>${{item.product.price}} VND</td>
+                            <td>{{item.quantity}}</td>
+                            <td>${{ item.total }} VND</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                      <div class="text-right">
+                        <h4>Tổng cộng: {{order.get_cart_total | floatformat:2}} VND</h4>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const addressRadios = document.querySelectorAll('input[name="address"]');
+        const submitButton = document.getElementById("submit-button");
+
+        submitButton.addEventListener("click", function() {
+            let selectedAddress = null;
+            addressRadios.forEach(function(radio) {
+                if (radio.checked) {
+                    selectedAddress = {
+                        firstName: radio.getAttribute("data-firstname"),
+                        address: radio.getAttribute("data-address"),
+                        city: radio.getAttribute("data-city"),
+                        state: radio.getAttribute("data-state"),
+                        mobile: radio.getAttribute("data-mobile")
+                    };
+                }
+            });
+
+            if (selectedAddress) {
+                sessionStorage.setItem("selectedAddress", JSON.stringify(selectedAddress));
+                // Chuyển hướng đến trang khác
+                window.location.href = "http://127.0.0.1:8000/address/";
+            }
+        });
+    });
+</script>
+
+{% endblock content_checkout %}
