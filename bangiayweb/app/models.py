@@ -42,15 +42,17 @@ class Product(models.Model):
     price_sale = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     describe = models.CharField(max_length=300, null=True)
     digital = models.BooleanField(default=False, null=True, blank=False)
+    count39 = models.IntegerField(default=0)
+    count40 = models.IntegerField(default=0)
+    count41 = models.IntegerField(default=0)
     image = models.ImageField(null=True, blank=True)
     image1 = models.ImageField(null=True, blank=True)
     image2 = models.ImageField(null=True, blank=True)
     image3 = models.ImageField(null=True, blank=True)
     image4 = models.ImageField(null=True, blank=True)
     unit = models.CharField(max_length=50, null=True, blank=True)
-    count = models.IntegerField(default=0)
-    def __str__(self):
-        return self.name
+    # count = models.IntegerField(default=0)
+
     @property
     def ImageURL(self):
         try:
@@ -86,7 +88,7 @@ class Product(models.Model):
         except:
             url = ''
         return url
-    
+
     
 class Order(models.Model):
     customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
@@ -138,9 +140,11 @@ class Comment(models.Model):
 # Create your models here.
 
 class AddProduct(forms.ModelForm):
+    # count = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     class Meta:
         model = Product
-        fields = ['name', 'category', 'price', 'price_sale', 'describe', 'digital', 'image', 'unit', 'count']
+        fields = ['name', 'category', 'price', 'price_sale', 'describe', 'digital', 'image', 'image1', 
+                  'image2', 'image3', 'image4', 'unit','count39','count40','count41']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'describe': forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 150px'}),
@@ -148,7 +152,14 @@ class AddProduct(forms.ModelForm):
             'price_sale': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input, d-flex'}),
             'unit': forms.TextInput(attrs={'class': 'form-control'}),
-            'count': forms.TextInput(attrs={'class': 'form-control'}),
+            
+            # 'count1': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'count2': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'count3': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'count4': forms.TextInput(attrs={'class': 'form-control'}),
+            'count39': forms.TextInput(attrs={'class': 'form-control'}),
+            'count40': forms.TextInput(attrs={'class': 'form-control'}),
+            'count41': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
 class AddCategory(forms.ModelForm):

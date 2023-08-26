@@ -37,51 +37,17 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-o"></i>
                         </div>
-                        <div class="product__details__price">${{products.price | floatformat:2}}</div>
+                        <div class="product__details__price">{{products.price | floatformat:2}} VND</div>
                         <p>{{products.describe}}</p>
                         <div class="product__details__quantity">
                         </div>
                         <div class="container">
                             <h2>Size</h2>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                    29
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                                    30
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
-                                    31
-                                </label>
-                            </div>
+                            <input type="radio" class="form-check-input" name="optionsRadios" id="size39" value="39">
+                            <input type="radio" class="form-check-input" name="optionsRadios" id="size40" value="40">
+                            <input type="radio" class="form-check-input" name="optionsRadios" id="size41" value="41">
+
                         </div>
-
-                        {% comment %} <div class="container">
-                            <h2>Giới tính</h2>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                    Nam
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                                    Nữ
-                                </label>
-                            </div>
-                        </div> {% endcomment %}
-
-                        
-
-
                         <button style="border: none" data-product={{products.id}} data-action="add" class="primary-btn add-btn update-btn ">Thêm vào giỏ hàng</button>
                        
                         <ul>

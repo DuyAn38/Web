@@ -38,10 +38,18 @@
                             <li><b>Tên sản phẩm: </b> <span>{{product.name}}</span></li>
                             <li><b>Giá: </b> <span>{{product.price | floatformat:2}} VND</span></li>
                             <li><b>Giá khuyến mãi: </b> <span>{{product.price_sale | floatformat:2}} VND</span></li>
-                            <li><b>Mô tả: </b> <span>{{product.describe}}</span></li>
                             <li><b>Đơn vị:  </b> <span>{{product.unit}}</span></li>
-                            <li><b>Số lượng:  </b> <span>{{product.count}}</span></li>  
+                            <li><b>Số lượng size 39:  </b> <span>{{product.count39}}</span></li> 
+                            <li><b>Số lượng size 40:  </b> <span>{{product.count40}}</span></li> 
+                            <li><b>Số lượng size 41:  </b> <span>{{product.count41}}</span></li>  
+                            <li><b>Số lượng :  </b> <span>{{count}}</span></li>
                         </ul>
+                        
+                    </div>
+                    <div class="product__details__text">
+                        <b>Mô tả</b>
+                        <span>{{product.describe}}</span>
+                        
                     </div>
                 </div>
             </div>

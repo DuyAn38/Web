@@ -40,8 +40,16 @@
           {{ form.unit }}
       </div>
       <div class="form-group">
-         <label for="categoryDescription">Số lượng</label>
-         {{ form.count }}
+        <label for="categoryDescription">Số lượng sezi 39</label>
+        {{ form.count39 }}
+      </div>
+      <div class="form-group">
+        <label for="categoryDescription">Số lượng sezi 40</label>
+        {{ form.count40 }}
+      </div>
+      <div class="form-group">
+        <label for="categoryDescription">Số lượng sezi 41</label>
+        {{ form.count41 }}
       </div>
       <div class="form-group">
           <label for="categoryDescription">Mô tả</label>
@@ -57,22 +65,52 @@
             </div>
         </div>
       </div>
-
       <div class="form-group">
         <label for="{{ form.image.id_for_label }}">Chọn ảnh: </label>
         <div class="input-group">
             <div class="custom-file">
-                {{ form.image }}
-                <label class="custom-file-label" for="{{ form.image.id_for_label }}">Choose file</label>
+                {{ form.image2 }}
+                <label class="custom-file-label" for="{{ form.image.id_for_label }}">Ảnh</label>
             </div>
         </div>
       </div>
+      <div class="form-group">
+        <label for="{{ form.image.id_for_label }}">Chọn ảnh: </label>
+        <div class="input-group">
+            <div class="custom-file">
+                {{ form.image3 }}
+                <label class="custom-file-label" for="{{ form.image.id_for_label }}">Ảnh</label>
+            </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="{{ form.image.id_for_label }}">Chọn ảnh: </label>
+        <div class="input-group">
+            <div class="custom-file">
+                {{ form.image4 }}
+                <label class="custom-file-label" for="{{ form.image.id_for_label }}">Ảnh</label>
+            </div>
+        </div>
+      </div>
+    </div>
+      
+
+      {% comment %} <div class="form-group">
+        <label for="{{ form.image.id_for_label }}">Chọn ảnh: </label>
+        <div class="input-group">
+            <div class="custom-file">
+                {{ form.image1 }}
+                <label class="custom-file-label" for="{{ form.image.id_for_label }}">Chọn ảnh</label>
+            </div>
+        </div>
+      </div>
+      
 
       <div class="form-group">
         <label for="{{ form.image.id_for_label }}">Chọn ảnh: </label> 
         <div class="input-group">
             <div class="custom-file">
-                {{ form.image }}
+                {{ form.image2 }}
                 <label class="custom-file-label" for="{{ form.image.id_for_label }}">Chọn ảnh</label>
             </div>
         </div>
@@ -82,7 +120,7 @@
         <label for="{{ form.image.id_for_label }}">Chọn ảnh: </label> 
         <div class="input-group">
             <div class="custom-file">
-                {{ form.image }}
+                {{ form.image3 }}
                 <label class="custom-file-label" for="{{ form.image.id_for_label }}">Chọn ảnh</label>
             </div>
         </div>
@@ -92,11 +130,11 @@
         <label for="{{ form.image.id_for_label }}">Chọn ảnh: </label> 
         <div class="input-group">
             <div class="custom-file">
-                {{ form.image }}
+                {{ form.image4 }}
                 <label class="custom-file-label" for="{{ form.image.id_for_label }}">Chọn ảnh</label>
             </div>
         </div>
-      </div>
+      </div> {% endcomment %}
       
       <div class="d-flex justify-content-center">
         <button type="submit" class="btn btn-primary text-center">Thêm sản phẩm</button>

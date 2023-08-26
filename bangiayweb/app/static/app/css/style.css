@@ -518,7 +518,7 @@ ol {
 
 .header__cart ul li a i {
 	font-size: 18px;
-	color: #1c1c1c;
+	color: #181616;
 }
 
 .header__cart ul li a span {
@@ -760,7 +760,7 @@ ol {
 -----------------------*/
 
 .categories__item {
-	height: 120px;
+	height: 160px;
 	width: 180px;
 	position: relative;
 }

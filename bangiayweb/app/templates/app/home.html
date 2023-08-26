@@ -9,7 +9,7 @@
                 {% for category in categories %}
                 <div class="col-lg-3">
                     <div class="categories__item set-bg" data-setbg="{{category.ImageURL}}  ">
-                        <h5><a href="{% url 'category' %}?category={{ category.slug }}">{{category.name}}</a></h5> 
+                        
                     </div>
                 </div>
                 {% endfor %}
@@ -18,61 +18,42 @@
     </div>
 </section>
 
-    <section style="padding-top: 20px;" class="product spad">
-        <div class="container">
-            <div class="row">
-                
-            
-                <div class="col-lg-12 col-md-7">
-                    {% comment %} <div class="product__discount">
-                        <div class="section-title product__discount__title">
-                            <h2>Mặt hàng</h2>
-                        </div>
-                        <div class="row">
-                            <div class="product__discount__slider owl-carousel">
-                                {% for product in products_sale %}
-                                    <div class="col-lg-3">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            data-setbg="{{ product.ImageURL }}">
-                                            <div class="product__discount__percent">-{{product.sale |floatformat:1 }}%  </div>
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#" data-product={{product.id}}  data-action="add"  class="add-btn update-btn"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="product__discount__item__text">
-                                            <h5><a href="{% url 'detail' %}?id={{ product.id }}" >{{ product.name }}</a></h5>
-                                            <div class="product__item__price">${{ product.price_sale }} <span>${{ product.price }}</span></div>
-                                        </div>
-                                    </div>
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="sidebar__item">
+                    <h4>Thương Hiệu</h4>
+                    <ul>
+                        {% for category in categories %}
+                            <li><a href="{% url 'category' %}?category={{ category.slug }}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ product.ImageURL }}">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#" data-product={{product.id}} data-action="add" class="add-btn update-btn"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
                                 </div>
-                                {% endfor %}
-                        </div>
-                    </div> {% endcomment %}
-                    <div style="padding-top: 50px" class="row">
-                        {% for product in products %}
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="{{ product.ImageURL }}">
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <h6><a href="{% url 'detail' %}?id={{ product.id }}" >{{ product.name }}</a></h6>
-                                        <h5>{{product.price}} VND</h5>
-                                    </div>
+                                <div class="product__item__text">
+                                    <h6><a href="{% url 'detail' %}?id={{ product.id }}" >{{ product.name }}</a></h6>
+                                    <h5>{{ product.price }} VND</h5>
                                 </div>
                             </div>
-                        {% endfor %}
-                    </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-        </div>
-    </section>
+    </div>
+</section>
+
 
     
 {% endblock shop-content %}
