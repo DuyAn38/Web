@@ -1,0 +1,59 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block shop-content %}
+<section class="categories">
+    <div class="container">
+        <div class="row">
+            <div class="categories__slider owl-carousel">
+                {% for category in categories %}
+                <div class="col-lg-3">
+                    <div class="categories__item set-bg" data-setbg="{{category.ImageURL}}  ">
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="sidebar__item">
+                    <h4>Thương Hiệu</h4>
+                    <ul>
+                        {% for category in categories %}
+                            <li><a href="{% url 'category' %}?category={{ category.slug }}">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{ product.ImageURL }}">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#" data-product={{product.id}} data-action="add" class="add-btn update-btn"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6><a href="{% url 'detail' %}?id={{ product.id }}" >{{ product.name }}</a></h6>
+                                    <h5>{{ product.price }} VND</h5>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+{% endblock shop-content %}

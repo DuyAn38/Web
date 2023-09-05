@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block add_address %}
+<div class="container mt-4 mb-3" style="width: 550px; border: #1b1e21">
+  <h2 class="mb-4 text-center">THÊM ĐỊA CHỈ</h2>
+  <form method="POST" action="" >
+      {% csrf_token %}
+
+      {{ form.city }}
+      {{ form.district }}
+      {{ form.commune }}
+    
+
+      <div class="form-group">
+      <label for="categoryDescription">Địa chỉ cụ thể:</label>
+      {{ form.adress }}
+     <h2 class="mb-4 text-center">THÊM ĐỊA CHỈ</h2>
+  </form>
+</div>
+
+{% endblock add_address %}
+
+
+
