@@ -50,18 +50,14 @@ def Continue1(request):
         order.save()
 
         for item in items:
-            items_order = OrderItem(product=item.product, order=order, quantity=item.quantity, total= item.product.price * item.quantity)
+            items_order = OrderItem(product=item.product, order=order, quantity=item.quantity,size=item.size, total= item.product.price * item.quantity)
             items_order.save()
-            items_order.product.count -= item.quantity
-            item.product.save()
-            print("Lưu thành công đối tượng OrderItem, SL còn: ")
-            print(items_order.product.count)
 
         products = OrderItem.objects.filter(order=order)
         for item in products:
             item.total = item.product.price * item.quantity
 
-        # items.delete()
+        items.delete()
     except Adress.DoesNotExist:
         # Xử lý trường hợp không tìm thấy bản ghi
         pass

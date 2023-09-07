@@ -17,6 +17,7 @@ urlpatterns = [
     path('detail/', views.detail, name="detail"),
     path('address/', views.Continue1, name="address"),
     path('information/', views.Information, name="information"),
+    path('myOrder/', views.myOrder, name="myOrder"),
 
     path('information_address/', views.information_address, name="information_address"),
     path('deleteAddress/', views.deleteAddress, name="deleteAddress"),

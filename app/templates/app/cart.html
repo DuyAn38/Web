@@ -78,8 +78,8 @@
                     <div style="margin-top: 0px" class="shoping__checkout">
                         <h5>Tổng tiền trong giỏ hàng</h5>
                         <ul>
-                            <li>Số sản phẩm <span>{{order.get_cart_item}}</span></li>
-                            <li>Thành tiền <span>{{order.get_cart_total | floatformat:2}} VND</span></li>
+                            <li>Số sản phẩm <span>{{count}}</span></li>
+                            <li>Thành tiền <span>{{total_all | floatformat:0}} VND</span></li>
                         </ul>
                         <a href="{% url 'checkout' %}" class="primary-btn">Kiểm Tra</a>
                     </div>

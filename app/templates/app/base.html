@@ -110,6 +110,7 @@
                                 <!-- Dropdown Menu -->
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="{% url 'information' %}">Thông tin</a>
+                                    <a class="dropdown-item" href="{% url 'myOrder' %}">Đơn hàng của tôi</a>
                                     <a style="display: {{ show_manage }}" class="dropdown-item" href="{% url 'manage' %}">Trang quản trị</a>
                                     <a class="dropdown-item" href="{% url 'logout' %}">Đăng xuất</a>
                                     <!-- Add more options as needed -->
@@ -176,6 +177,8 @@
           {% block blog_winshop %}{% endblock blog_winshop %}
           {% block add_address %}{% endblock add_address %}
           {% block edit_address %}{% endblock edit_address %}
+
+          {% block my_order %}{% endblock my_order %}
 
 
     <footer id="footer" class="section section-grey">
