@@ -15,7 +15,7 @@ def updateItem(request):
         order = Cart.objects.get(user=request.user, product=product, size=selectedSize)
         print(order.size)
         print(order.quantity)
-        print(order.product.name)
+        print(order.product.name) 
     except Cart.DoesNotExist:
         order = None
     
