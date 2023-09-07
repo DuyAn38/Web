@@ -1,0 +1,60 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content_checkout %}
+    <div class="container">
+        <div class="row" style="width:100%">
+            <div class="col-md-12">
+            <h2>THANH TOÁN</h2>
+                <div class="box-element" id="form-wrapper">
+                    <div id="shipping-info">
+                        <p id="selected-address"></p>
+{#                        <p>Địa chỉ nhận hàng: <span id="firstName"></span> , <span id="mobile"></span>, <span id="state"></span>, <span id="address"></span>, <span id="city"></span> </p>#}
+                    </div>
+
+                    <table class="table table-borderless">
+                        <thead>
+                          <tr>
+                            <th>Ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Đơn Giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for item in items %}
+                          <tr>
+                            <td> <img style="height: 80px; width: auto;" src="{{item.product.ImageURL}}"/> </td>
+                            <td>{{item.product.name}}</td>
+                            <td>{{item.product.price}}VNĐ</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{ item.total | floatformat:2 }}VNĐ</td>
+
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                      <div class="text-right">
+                        <h4>Tổng cộng: {{order.get_cart_total | floatformat:2}}VNĐ</h4>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const selectedAddressElement = document.getElementById("selected-address");
+        const selectedAddressJSON = sessionStorage.getItem("selectedAddress");
+        if (selectedAddressJSON) {
+            const selectedAddress = JSON.parse(selectedAddressJSON);
+            console.log(selectedAddress);
+            // Thực hiện xử lý dữ liệu địa chỉ ở đây
+            selectedAddressElement.textContent = `Địa chỉ: ${selectedAddress.name_user} - ${selectedAddress.moblie} - ${selectedAddress.address}
+            -  ${selectedAddress.commune} - ${selectedAddress.district} - ${selectedAddress.city} `;
+        }
+      });
+    </script>
+
+{% endblock content_checkout %}
