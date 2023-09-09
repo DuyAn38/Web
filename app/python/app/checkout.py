@@ -17,22 +17,6 @@ def checkout(request):
     form = AddressForm()
     total_all = 0
     count = 0
-    # if request.user.is_authenticated:
-    #     customer = request.user
-    #     items = Cart.objects.filter(user=customer)
-    #     for item in items:
-    #         print(item) 
-    #     user_not_login = "none"
-    #     user_login = "show"
-    #     for item in items:
-    #         print(item)
-    #         item.total = item.product.price * item.quantity
-    #         total_all += item.product.price * item.quantity
-    #         count += item.quantity
-    # else:
-    #     items = []
-    #     user_not_login = "show"
-    #     user_login = "none"
     if request.user.is_authenticated:
         customer = request.user
         allAddress = Adress.objects.filter(customer=customer)

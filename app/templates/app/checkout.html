@@ -26,7 +26,7 @@
                             </div>
                         {% else %}
                         {% endif %}
-                        <button id="submit-button" type="submit" class="btn primary-btn btn-sm"><a style="color: white" href="{% url 'address' %}">Submit</a></button>
+                        <button id="submit-button" type="submit" class="btn primary-btn btn-sm"><a style="color: white" href="{% url 'address' %}">Mua</a></button>
                     </form>
                 </div>
             </div>
@@ -62,7 +62,11 @@
                         <h4>Tổng cộng: {{total_all | floatformat:2}} VND</h4>
                       </div>
                 </div>
+                
             </div>
+        </div>
+        <div class="shoping__cart__btns">
+            <a href="{% url 'home' %}" class="primary-btn cart-btn">Tiếp tục mua</a>
         </div>
     </div>
 

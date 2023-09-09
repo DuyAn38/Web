@@ -32,19 +32,6 @@
                                     </td><td class="shoping__cart__total">
                                         {{item.product.price}} VND
                                     </td>
-
-                                    {% comment %} <td class="shoping__cart__quantity">
-                                        <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button data-product="{{item.product.id}}" data-action="remove" data-size="{{item.size}}" class="btn btn-outline-secondary" type="button">-</button>
-                                            </span>
-                                            <input style="width: 60px;" type="number" value="{{item.quantity}}" class="form-control">
-                                            <span class="input-group-btn">
-                                                <button data-product="{{item.product.id}}" data-action="add" data-size="{{item.size}}" class="btn btn-outline-secondary" type="button">+</button>
-                                            </span>
-                                        </div>
-                                    </td> {% endcomment %}
-                                    
                                     
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
@@ -81,7 +68,7 @@
                             <li>Số sản phẩm <span>{{count}}</span></li>
                             <li>Thành tiền <span>{{total_all | floatformat:0}} VND</span></li>
                         </ul>
-                        <a href="{% url 'checkout' %}" class="primary-btn">Kiểm Tra</a>
+                        <a href="{% url 'checkout' %}" class="primary-btn">Đặt hàng</a>
                     </div>
                 </div>
             </div>

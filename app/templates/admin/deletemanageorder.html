@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Xóa địa chỉ</title>
+    <title>CYROCHI</title>
     <style>
         body {
             display: flex;
@@ -33,16 +33,17 @@
             margin-left: 10px; /* Khoảng cách giữa nút Xóa và liên kết Hủy */
         }
     </style>
-</head>
-<body>
-    <div class="content">
-        <h2>Xóa Địa Chỉ</h2>
-        <p>Bạn chắc chắn muốn xóa địa chỉ "{{ category.name }}"?</p>
-        <form method="post">
-            {% csrf_token %}
-            <button type="submit">Xóa</button>
-            <a href="{% url 'information' %}">Hủy</a>
-        </form>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">Xóa Đơn Hàng</h2>
+            <p class="card-text">Bạn chắc chắn muốn xóa đơn hàng?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Xóa</button>
+                <a href="{% url 'myOrder' %}" class="btn btn-secondary">Hủy</a>
+            </form>
+        </div>
     </div>
-</body>
-</html>
+</div>
+

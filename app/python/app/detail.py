@@ -33,20 +33,11 @@ def detail(request):
         items = []
         user_not_login = "show"
         user_login = "none"
-    form = CommentForm()
     id = request.GET.get('id', '') # lấy id khi người dùng Click vào sản phẩm nào đó
     user = request.user
     products = get_object_or_404(Product, id=id)
-    comment = Comment.objects.filter(product=products) # lấy đúng cái cmt của cái sp đó
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            content = form.cleaned_data['title']
-            comments = Comment(user=user, product=products, title=content)
-            comments.save()
     categories = Category.objects.filter(is_sub=False)  # lay cac damh muc lon
-    context = {'form': form,
-               'comments': comment,
+    context = {
                'products': products,
                'items': items,
                'total_all': total_all,

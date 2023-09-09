@@ -9,7 +9,6 @@
                 <div class="box-element" id="form-wrapper">
                     <div id="shipping-info">
                         <p id="selected-address"></p>
-{#                        <p>Địa chỉ nhận hàng: <span id="firstName"></span> , <span id="mobile"></span>, <span id="state"></span>, <span id="address"></span>, <span id="city"></span> </p>#}
                     </div>
 
                     <table class="table table-borderless">
@@ -41,6 +40,9 @@
                         <h4>Tổng cộng: {{total_all | floatformat:0}} VNĐ</h4>
                       </div>
                 </div>
+                <div class="shoping__cart__btns">
+                  <a href="{% url 'myOrder' %}" class="primary-btn cart-btn">Kiểm tra đơn hàng</a>
+              </div>
             </div>
         </div>
     </div>

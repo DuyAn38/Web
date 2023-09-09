@@ -4,6 +4,7 @@ from django import forms
 from django.utils import timezone
 from rest_framework import serializers
 from django.contrib.auth.forms import UserCreationForm
+
 class Category(models.Model):
     sub_category = models.ForeignKey('self', on_delete=models.CASCADE, related_name='sub_categories', null=True, blank=True)
     is_sub = models.BooleanField(default=False)
@@ -20,20 +21,7 @@ class Category(models.Model):
             url = ''
         return url
 
-class Slide(models.Model):
-    category_slide = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=False)
-    name = models.CharField(max_length=200, null=True, blank=True)
-    detail = models.TextField(null=True)
-    image = models.ImageField(null=True, blank=True)
-    def __str__(self):
-        return self.name
-    @property
-    def ImageURL(self):
-        try:
-            url = self.image.url
-        except:
-            url = ''
-        return url
+
 
 class Adress(models.Model):
     customer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
@@ -67,13 +55,14 @@ class Product(models.Model):
     # count = models.IntegerField(default=0)
 
     @property
+
     def ImageURL(self):
         try:
             url = self.image.url
         except:
             url = ''
         return url
-    @property
+    
     def ImageURL1(self):
         try:
             url = self.image1.url
@@ -101,6 +90,7 @@ class Product(models.Model):
         except:
             url = ''
         return url
+    
 class Cart(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
@@ -129,6 +119,7 @@ class Order(models.Model):
         # lấy hết tất cả tiền của các mặt hàng
         total = sum([item.get_total for item in orderitems])
         return total
+    
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True, blank=True)
@@ -139,16 +130,7 @@ class OrderItem(models.Model):
     # lấy tiền của mỗi sản phẩm
     @property
     def get_total(self):
-        total = self.product.price * self.quantity
-        return total
-class Comment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, blank=True)
-    title = models.TextField(null=True, blank=False)
-    date = models.DateTimeField(default=timezone.now, blank=True, null=True)
-    def __str__(self):
-        return self.user.last_name
-# Create your models here.
+        return self.total
 
 class AddProduct(forms.ModelForm):
     # count = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
@@ -163,11 +145,6 @@ class AddProduct(forms.ModelForm):
             'price_sale': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input, d-flex'}),
             'unit': forms.TextInput(attrs={'class': 'form-control'}),
-            
-            # 'count1': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'count2': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'count3': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'count4': forms.TextInput(attrs={'class': 'form-control'}),
             'count39': forms.TextInput(attrs={'class': 'form-control'}),
             'count40': forms.TextInput(attrs={'class': 'form-control'}),
             'count41': forms.TextInput(attrs={'class': 'form-control'}),
@@ -182,13 +159,6 @@ class AddCategory(forms.ModelForm):
             'slug': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ['user', 'product', 'title']
-        widgets = {
-            'title': forms.Textarea(attrs={'class': 'form-control', 'style': 'height:100px', 'placeholder': 'Nhập nội dung comment.....'}),
-        }
 
 class AddressForm(forms.ModelForm):
     class Meta:

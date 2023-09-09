@@ -8,13 +8,12 @@
         <div class="card">
           <img src="{% static 'app/images/avatar.jpg'%}" class="card-img-top" alt="User Image">
           <div class="card-body">
-              <h5 class="card-title">Tên user: {{ user.username }}</h5>
-              <p class="card-text">Tên người dùng: {{ user.last_name }} </p>
-              <p class="card-text">Email người dùng: {{ user.email }} </p>
-              <p class="card-text">Họ:{{ user.first_name }} </p>
+              <h5 class="card-title">Tên Tài khoản: {{ user.username }}</h5>
               <p class="card-text">Tên: {{ user.last_name }} </p>
+              <p class="card-text">Họ:{{ user.first_name }} </p>
+              <p class="card-text">Email người dùng: {{ user.email }} </p>
             <!-- Các liên kết xử lý khác cho người dùng -->
-             <button style="border: none;" class="primary-btn" data-toggle="modal" ><a style="color: white" href="{% url 'addAddress' %}">Chỉnh sửa thông tin</a></button>
+             <button style="border: none;" class="primary-btn" data-toggle="modal" ><a style="color: white" href="{% url 'edit_information' %}">Chỉnh sửa thông tin</a></button>
           </div>
         </div>
       </div>

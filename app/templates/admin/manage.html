@@ -92,6 +92,13 @@
                     <span>THÀNH VIÊN</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'manageorder' %}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>ĐƠN HÀNG</span></a>
+            </li>
+
+            
 
 
             <!-- Divider -->
@@ -185,9 +192,10 @@
 
                 </nav>
                 <!-- End of Topbar -->
-                {% block blog-slide %}{% endblock blog-slide %}
                 {% block blog-product %}{% endblock blog-product %}
                 {% block blog-category %}{% endblock blog-category %}
+                {% block blog-order %}{% endblock blog-order %}
+                {% block viewmanageorder %}{% endblock viewmanageorder %}
 
             </div>
             <!-- End of Main Content -->

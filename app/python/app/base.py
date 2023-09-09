@@ -11,10 +11,8 @@ def base(request):
     else:
         print('not admin')
         show_manage = 'none'
-    slide = Slide.objects.all()
     categories = Category.objects.filter(is_sub=False)  # lay cac damh muc lon
     context = {
-        'slide': slide,
         'categories': categories,
         'show_manage': show_manage,
     }
@@ -30,7 +28,6 @@ def getHome(request):
         show_manage = 'none'
 
     products = Product.objects.all()
-    slide = Slide.objects.all()
     total_all = 0
     count = 0
     if request.user.is_authenticated:
@@ -51,7 +48,6 @@ def getHome(request):
     categories = Category.objects.filter(is_sub=False)  # lay cac damh muc lon
     active_category = request.GET.get('category', '')
     context = {'products': products,
-               'slide': slide,
                'items': items,
                'total_all': total_all,
                'count': count,

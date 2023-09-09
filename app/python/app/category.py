@@ -39,9 +39,7 @@ def category(request):
     count = 0
     if request.user.is_authenticated:
         customer = request.user
-        # order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        # items = order.orderitem_set.all()
-        # user_not_login = "hidden"
+      
         items = Cart.objects.filter(user=customer)
         user_not_login = "none"
         user_login = "show"

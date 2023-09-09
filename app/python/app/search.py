@@ -15,6 +15,9 @@ def searchProduct(request):
     else:
         print('not admin')
         show_manage = 'none'
+
+
+
     if request.user.is_authenticated: # neu da xac thuc
         user_not_login = "none"
         user_login = "show"
@@ -27,21 +30,13 @@ def searchProduct(request):
         keys = Product.objects.filter(name__contains=search)
         if request.user.is_authenticated:
             customer = request.user
-            order, created = Order.objects.get_or_create(customer=customer, complete=False)
-            items = order.orderitem_set.all()
-            for item in items:
-                item.total = item.product.price * item.quantity
-        else:
-            order = None
-            items = []
+
     return render(request, "app/search.html",
                   {'categories': categories,
                    'user_login': user_login,
                    'user_not_login': user_not_login,
                    "search": search,
                    "keys": keys,
-                   'items': items,
-                   'order': order,
                    'slide_hidden': slide_hidden,
                    'fixed_height': fixed_height,
                    'show_manage': show_manage,

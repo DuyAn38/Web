@@ -17,16 +17,17 @@ urlpatterns = [
     path('detail/', views.detail, name="detail"),
     path('address/', views.Continue1, name="address"),
     path('information/', views.Information, name="information"),
+    path('edit_information/', views.editInformation, name="edit_information"),
     path('myOrder/', views.myOrder, name="myOrder"),
-
     path('information_address/', views.information_address, name="information_address"),
     path('deleteAddress/', views.deleteAddress, name="deleteAddress"),
     path('addAddress/', views.addAddress, name="addAddress"),
     path('editAddress/', views.editAddress, name="editAddress"),
     # phan admin
     path('manage/', views.Manage, name="manage"),
-    path('manageSlide/', views.manageSlide, name="manageSlide"),
-
+    path('manageorder/', views.manageorder, name="manageorder"),
+    path('viewmanageorder/', views.viewmanageorder, name="viewmanageorder"),
+    path('deletemanageorder/', views.deletemanageorder, name="deletemanageorder"),
     path('manageProduct/', views.manageProduct, name="manageProduct"),
     path('addProduct/', views.addProduct, name="addProduct"),
     path('editProduct/', views.editProduct, name="editProduct"),
@@ -47,3 +48,6 @@ urlpatterns = [
     path('api/categorysl/<int:pk>/', UpdateCategoryAPI.as_view(), name='update-category-api'),
 
 ]
+
+
+

@@ -30,15 +30,15 @@ def Information(request):
 
     if request.user.is_authenticated:
         customer = request.user
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
+        # order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        # items = order.orderitem_set.all()
         user_not_login = "none"
         user_login = "show"
-        for item in items:
-            item.total = item.product.price * item.quantity
+        # for item in items:
+        #     item.total = item.product.price * item.quantity
     else:
-        order = None
-        items = []
+        # order = None
+        # items = []
         user_not_login = "show"
         user_login = "none"
 
@@ -50,8 +50,8 @@ def Information(request):
                'fixed_height': fixed_height,
                'user_not_login': user_not_login,
                'user_login': user_login,
-               'items': items,
-               'order': order,
+            #    'items': items,
+            #    'order': order,
                'show_manage': show_manage,
                }
     return render(request, 'app/information.html', context)
