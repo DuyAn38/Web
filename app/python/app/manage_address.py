@@ -12,7 +12,7 @@ def deleteAddress(request):
     else:
         print('not admin')
         show_manage = 'none'
-    id = request.GET.get('id', '')  # lấy id khi người dùng vlick vào sản phẩm nào đó
+    id = request.GET.get('id', '')  # lấy id khi người dùng click vào sản phẩm nào đó
     address = get_object_or_404(Adress, id=id)
     if request.method == 'POST':
         address.delete()

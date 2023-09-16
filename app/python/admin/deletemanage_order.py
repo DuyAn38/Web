@@ -13,7 +13,7 @@ def deletemanageorder(request):
         items.delete()
         order.delete()
         messages.success(request, 'Xóa đơn hàng thành công')
-        return redirect('manageOrder')
+        return redirect('manageorder')
     context = {'product': order}
 
     return render(request, 'admin/delete_order.html', context)

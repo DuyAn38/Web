@@ -36,8 +36,15 @@ def detail(request):
     id = request.GET.get('id', '') # lấy id khi người dùng Click vào sản phẩm nào đó
     user = request.user
     products = get_object_or_404(Product, id=id)
+    categories_product = products.category.values_list('id', flat=True)
+    # Lấy danh sách tên danh mục từ danh sách ID
+    category_names = Category.objects.filter(id__in=categories_product).values_list('name', flat=True)
+    print(category_names)
+    # Chuyển danh sách tên thành danh sách Python
+    category_names_list = list(category_names)
     categories = Category.objects.filter(is_sub=False)  # lay cac damh muc lon
     context = {
+               'category_names_list': category_names_list,
                'products': products,
                'items': items,
                'total_all': total_all,

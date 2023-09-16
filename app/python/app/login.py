@@ -18,7 +18,7 @@ def loginPage(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.info(request, 'UserName or PassWord not ddungs')
+            messages.info(request, 'Tài khoản hoặc mật khẩu không chính xác.')
     context = {'user_login': user_login,
                'user_not_login': user_not_login,
                'slide_hidden': slide_hidden,

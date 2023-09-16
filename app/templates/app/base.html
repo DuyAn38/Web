@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="{%static 'app/css/style.css' %}">
         <link rel="stylesheet" href="{%static 'app/sass/style.scss' %}">
 
+
         <script type="text/javascript" >
           var user = '{{request.user}}'
           function getCookie(name) {
@@ -84,6 +85,8 @@
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
+    
+
     <header class="header">
         <div class="header__top">
             <div class="container">
@@ -125,38 +128,93 @@
                 </div>
             </div>
         </div>
+
+        
         <section style="padding-top: 20px;" class="hero hero-normal">
             <div class="container">
+
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="header__logo">
                             <a href="{% url 'home' %}"><img src="{% static 'app/images/logoo.png'%}" width="160" height="60" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-lg-9 " style="height: {{ fixed_height }}">
+
+
+                    <div class="col-lg-7 " style="height: {{ fixed_height }}">
                         <div class="hero__search">
                             <div class="hero__search__form">
                                 <form method="POST" action="{% url 'search' %}">
                                     {% csrf_token %}
-                                    <input type="text" placeholder="" name="searched"    >
+                                    <input type="text" placeholder="" name="searched">
                                     <button type="submit" class="site-btn">Tìm kiếm</button>
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                     
-                    <div class="col-lg-1">
+                    
+                    <div class="col-lg-2 ml-auto">
                         <div class="header__cart">
                             <ul>
-                                <li><a href="{% url 'cart' %}"><i class="fa fa-shopping-bag"></i> <span>{{count}}</span></a></li>
+                                <li><a href="{% url 'cart' %}"><i class="fa fa-shopping-bag"></i> <span>{{ count }}</span></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
+                
+
+
+
+                <!-- Thêm các phần ở đây -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container justify-content-between"> <!-- Thêm class justify-content-between ở đây -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ml-auto">
+
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Thương Hiệu
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        {% for category in categories %}
+                                        <a class="dropdown-item" href="{% url 'category' %}?category={{ category.slug }}">{{ category.name }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </li>
+
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Chính sách
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">THÔNG TIN ĐIỆN TỬ</a>
+                                        <a class="dropdown-item" href="#">Chính sách bảo mật</a>
+                                        <a class="dropdown-item" href="#">Chính sách vận chuyển</a>
+                                        <a class="dropdown-item" href="#">Chính sách đổi trả</a>
+                                        <a class="dropdown-item" href="#">Quy định sử dụng</a>
+                                        <a class="dropdown-item" href="#">Hướng dẫn đặt hàng</a>
+                                        <a class="dropdown-item" href="#">Thông tin thanh toán</a>
+                                        <a class="dropdown-item" href="#">Thông tin về JAPANBABY</a>
+                                        <a class="dropdown-item" href="#">Bảng đánh giá nhận diện tình trạng sản phẩm đã qua sử dụng</a>
+                                    </div>
+                                </li>
+                                
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </section>
         
     </header>
+
     
     <!-- Header Section End -->
 
@@ -181,101 +239,100 @@
           {% block my_order %}{% endblock my_order %}
 
 
-    <footer id="footer" class="section section-grey">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<!-- footer widget -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<!-- footer logo -->
-						<div class="footer-logo">
-							<a class="logo" href="#">
-                                <a href="{% url 'home' %}"><img src="{% static 'app/images/logoo.png' %}" alt=""></a>
-		          </a>
-						</div>
-						<!-- /footer logo -->
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-
-						<!-- footer social -->
-						<ul class="footer-social">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-						</ul>
-						<!-- /footer social -->
-					</div>
-				</div>
-				<!-- /footer widget -->
-
-				<!-- footer widget -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-header">My Account</h3>
-						<ul class="list-links">
-							<li><a href="#">My Account</a></li>
-							<li><a href="#">My Wishlist</a></li>
-							<li><a href="#">Compare</a></li>
-							<li><a href="#">Checkout</a></li>
-							<li><a href="#">Login</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- /footer widget -->
-
-				<div class="clearfix visible-sm visible-xs"></div>
-
-				<!-- footer widget -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-header">Customer Service</h3>
-						<ul class="list-links">
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">Shiping & Return</a></li>
-							<li><a href="#">Shiping Guide</a></li>
-							<li><a href="#">FAQ</a></li>
-						</ul>
-					</div>
-				</div>
-				<!-- /footer widget -->
-
-				<!-- footer subscribe -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="footer">
-						<h3 class="footer-header">Stay Connected</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-						<form>
-							<div class="form-group">
-								<input class="input" placeholder="Enter Email Address">
-							</div>
-							<button class="primary-btn">Join Newslatter</button>
-						</form>
-					</div>
-				</div>
-				<!-- /footer subscribe -->
-			</div>
-			<!-- /row -->
-			<hr>
-			<!-- row -->
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<!-- footer copyright -->
-					<div class="footer-copyright">
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="" target="_blank">Cyrochi</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</div>
-					<!-- /footer copyright -->
-				</div>
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</footer>
+          <footer id="footer" class="section section-grey">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- footer widget -->
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="footer">
+                            <!-- footer logo -->
+                            <div class="footer-logo">
+                                <a class="logo" href="#">
+                                    <a href="{% url 'home' %}"><img src="{% static 'app/images/logoo.png' %}" alt=""></a>
+                      </a>
+                            </div>
+                            <!-- /footer logo -->
+        
+                            <p></p>
+        
+                            <!-- footer social -->
+                            <ul class="footer-social">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                            <!-- /footer social -->
+                        </div>
+                    </div>
+                    <!-- /footer widget -->
+        
+                    <!-- footer widget -->
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-header">Tài khoản của tôi</h3>
+                            <ul class="list-links">
+                                <li><a href="/information">Tài khoản của tôi</a></li>
+                                <li><a href="/cart">Giỏ hàng</a></li>
+                                <li><a href="/myOrder">Đơn hàng của tôi</a></li>
+                                <li><a href="{% url 'logout' %}">Đăng xuất</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /footer widget -->
+        
+                    <div class="clearfix visible-sm visible-xs"></div>
+        
+                    <!-- footer widget -->
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-header">Dịch vụ khách hàng</h3>
+                            <ul class="list-links">
+                                <li><a href="#">Về chúng tôi</a></li>
+                                <li><a href="#">Vận chuyển & Trả lại</a></li>
+                                <li><a href="#">Hướng dẫn vận chuyển</a></li>
+                                <li><a href="#">Câu hỏi thường gặp</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /footer widget -->
+        
+                    <!-- footer subscribe -->
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-header">Giữ liên lạc</h3>
+                            <p>hãy điền địa chỉ hòm thư của bạn để nhận được thông tin mới nhất của chúng tôi.</p>
+                            <form>
+                                <div class="form-group">
+                                    <input class="input" placeholder="Nhập hòm thư">
+                                </div>
+                                <button class="primary-btn">Nhận thông tin</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /footer subscribe -->
+                </div>
+                <!-- /row -->
+                <hr>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <!-- footer copyright -->
+                        <div class="footer-copyright">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Bản quyền &copy;<script>document.write(new Date().getFullYear());</script> Mọi quyền được bảo lưu | Mẫu này được tạo bởi  <i class="fa fa-heart-o" aria-hidden="true"></i> bởi <a href="" target="_blank">Cyrochi</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </div>
+                        <!-- /footer copyright -->
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </footer>
 
     <style>
         /* CSS cho phần footer */
@@ -364,13 +421,13 @@ p {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="{%static 'app/js/bootstrap.min.js' %} "></script>
-{#    <script src="{%static 'app/js/jquery-3.3.1.min.js' %} "></script>#}
     <script src="{%static 'app/js/jquery.nice-select.min.js' %} "></script>
     <script src="{%static 'app/js/jquery.slicknav.js' %} "></script>
     <script src="{%static 'app/js/jquery-ui.min.js' %} "></script>
     <script src="{%static 'app/js/mixitup.min.js' %} "></script>
     <script src="{%static 'app/js/owl.carousel.min.js' %} "></script>
     <script src="{%static 'app/js/main.js' %} "></script>
+
 
 
 </html>

@@ -6,6 +6,7 @@ from .views import *
 urlpatterns = [
     path('base/', views.base, name="base"),
     path('', views.getHome, name="home"),
+    
     path('cart/', views.cart, name="cart"),
     path('checkout/', views.checkout, name="checkout"),
     path('update_item/', views.updateItem, name="update_item"),
@@ -23,6 +24,7 @@ urlpatterns = [
     path('deleteAddress/', views.deleteAddress, name="deleteAddress"),
     path('addAddress/', views.addAddress, name="addAddress"),
     path('editAddress/', views.editAddress, name="editAddress"),
+
     # phan admin
     path('manage/', views.Manage, name="manage"),
     path('manageorder/', views.manageorder, name="manageorder"),

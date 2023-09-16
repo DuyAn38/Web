@@ -55,35 +55,34 @@ class Product(models.Model):
     # count = models.IntegerField(default=0)
 
     @property
-
     def ImageURL(self):
         try:
             url = self.image.url
         except:
             url = ''
         return url
-    
+    @property
     def ImageURL1(self):
         try:
             url = self.image1.url
         except:
             url = ''
         return url
-    
+    @property
     def ImageURL2(self):
         try:
             url = self.image2.url
         except:
             url = ''
         return url
-    
+    @property
     def ImageURL3(self):
         try:
             url = self.image3.url
         except:
             url = ''
         return url
-    
+    @property
     def ImageURL4(self):
         try:
             url = self.image4.url
@@ -175,10 +174,10 @@ class AddressForm(forms.ModelForm):
 
         }
 
-class CreateUserForm(forms.ModelForm):
+class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'password']
+        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.TextInput(attrs={'class': 'form-control'}),

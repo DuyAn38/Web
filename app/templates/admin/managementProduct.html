@@ -1,6 +1,77 @@
 {% extends 'admin/manage.html' %}
 {% load static %}
 {% block blog-product %}
+<style>
+    .container {
+        margin-top: 20px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .text-right {
+        margin-bottom: 20px;
+    }
+
+    /* Thêm một lớp CSS để định dạng nút "Thêm sản phẩm" */
+    .add-product-button {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 20px;
+        background-color: #007bff;
+        border-radius: 5px;
+    }
+
+    .add-product-button:hover {
+        background-color: #0056b3;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    img {
+        max-height: 100px;
+    }
+
+    .btn-group {
+        display: flex;
+    }
+
+    .btn-group .btn {
+        margin-right: 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+</style>
     <div class="container mt-4">
        <h2>Quản lý sản phẩm</h2>
     <div class="text-right mb-3">
@@ -34,7 +105,7 @@
                                         {{ product.name }}
                                     </td>
                                     <td>
-                                        {{ product.price }}
+                                        {{ product.price|floatformat:0 }}
                                     </td>
                                     <td>
                                         <a style="h" href="{% url 'viewProduct' %}?id={{ product.id }}" class="btn btn-primary btn-sm">Xem</a>
@@ -51,4 +122,5 @@
         </div>
     </section>
 </div>
+
 {% endblock blog-product %}

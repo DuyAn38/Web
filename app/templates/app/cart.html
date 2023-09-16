@@ -30,9 +30,9 @@
                                     <td class="shoping__cart__price">
                                         {{item.size}}
                                     </td><td class="shoping__cart__total">
-                                        {{item.product.price}} VND
+                                        {{item.product.price|floatformat:0}} VND
                                     </td>
-                                    
+                                   
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="">
@@ -43,7 +43,7 @@
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
-                                        {{ item.total }} VND
+                                        {{ item.total|floatformat:0 }} VND
                                     </td>
                                     <td class="shoping__cart__item__close">
 {#                                        <span class="icon_close"></span>#}

@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block viewmanageorder %}
+
     <div class="container align-items-center">
         <div class="row" style="width:100%">
 
@@ -11,15 +12,15 @@
             <h4 class="text-center">HÓA ĐƠN</h4>
                 <div class="box-element pt-2" id="form-wrapper">
                     <div id="shipping-info">
-                        <h5>Tên khách hàng: {{ order.customer.username }}</h5>
+                        <h5>Tên khách hàng: {{ order.address.name_user }}</h5>
 
-                        <p>Địa chỉ nhận hàng:
-                            <span>{{ order.address.name_user }}</span> ,
-                            <span>{{ order.address.mobile }}</span>,
-                            <span>{{ order.address.adress }}</span>,
-                            <span>{{ order.address.commune }}</span>,
-                            <span>{{ order.address.district }}</span>,
-                            <span>{{ order.address.city }}</span>
+                        <p>
+                            <span>Tên:{{ order.address.name_user }}</span> ,
+                            <span>Số điện thoại:{{ order.address.mobile }}</span>,
+                            <span>Xã/Phường: {{ order.address.commune }}</span>,
+                            <span>Huyện: {{ order.address.district }}</span>,
+                            <span>Thành phố: {{ order.address.city }}</span>,
+                            <span>Địa chỉ cụ thể : {{ order.address.adress }}</span>.
                         </p>
                     </div>
                     {% for item in items %}
@@ -32,14 +33,14 @@
                             <div class="ml-2">
                                 <ul style="list-style: none; font-size: 14px;">
                                     <li class=""> <b>Tên mặt hàng: {{item.product.name}}</b></li>
-                                    <li  class="">Số tiền: {{item.product.price}} VNĐ</li>
+                                    <li  class="">Số tiền: {{item.product.price|floatformat:0}} VNĐ</li>
                                     <li  class="">Số lượng: {{item.quantity}} Đôi</li>
                                     <li  class="">Size: {{ item.size}} </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
-                            Tổng:{{ item.total | floatformat:2 }} VNĐ
+                            Tổng:{{ item.total | floatformat }} VNĐ
 
                         </div>
                     </div>
@@ -47,7 +48,7 @@
 
                     <div class="d-flex flex-column float-right">
                         <div class="float-right text-lg-right">
-                            <h5><b>Thành tiền:</b> {{ total|floatformat:2 }} VNĐ</h5>
+                            <h5><b>Thành tiền:</b> {{ total|floatformat }} VNĐ</h5>
                         </div>
                     </div>
                 </div>
@@ -55,4 +56,6 @@
             <div class="col-md-1"></div>
         </div>
     </div>
+
+    
 {% endblock viewmanageorder %}

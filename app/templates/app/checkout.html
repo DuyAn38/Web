@@ -51,23 +51,21 @@
                             <td> <img style="height: 80px; width: auto;" src="{{item.product.ImageURL}}"/> </td>
                             <td>{{item.product.name}}</td>
                             <td>{{item.size}}</td>
-                            <td>${{item.product.price}} VND</td>
+                            <td>{{item.product.price|floatformat:0}} VND</td>
                             <td>{{item.quantity}}</td>
-                            <td>${{ item.total }} VND</td>
+                            <td>{{ item.total|floatformat:0 }} VND</td>
                           </tr>
                           {% endfor %}
                         </tbody>
                       </table>
                       <div class="text-right">
-                        <h4>Tổng cộng: {{total_all | floatformat:2}} VND</h4>
+                        <h4>Tổng cộng: {{total_all|floatformat:0}} VND</h4>
                       </div>
                 </div>
                 
             </div>
         </div>
-        <div class="shoping__cart__btns">
-            <a href="{% url 'home' %}" class="primary-btn cart-btn">Tiếp tục mua</a>
-        </div>
+       
     </div>
 
 

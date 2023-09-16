@@ -38,7 +38,12 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-half-o"></i>
                         </div>
-                        <div class="product__details__price">{{products.price | floatformat:2}} VND</div>
+                        <div><b>Hãng: </b> <span>
+                            {% for category_name in category_names_list %}
+                                <span> {{ category_name }}</span>
+                            {% endfor %}
+                        </span></div>
+                        <div class="product__details__price">{{products.price | floatformat}} VND</div>
                         <p>{{products.describe}}</p>
                         <div class="product__details__quantity">
                         </div>

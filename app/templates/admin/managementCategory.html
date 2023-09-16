@@ -1,6 +1,77 @@
 {% extends 'admin/manage.html' %}
 {% load static %}
 {% block blog-category %}
+<style>
+    .container {
+        margin-top: 20px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .text-right {
+        margin-bottom: 20px;
+    }
+
+    /* Thêm một lớp CSS để định dạng nút "Thêm danh mục" */
+    .add-product-button {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 20px;
+        background-color: #007bff;
+        border-radius: 5px;
+    }
+
+    .add-product-button:hover {
+        background-color: #0056b3;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    img {
+        max-height: 100px;
+    }
+
+    .btn-group {
+        display: flex;
+    }
+
+    .btn-group .btn {
+        margin-right: 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+</style>
     <div class="container mt-4">
        <h2>Quản lý danh mục</h2>
     <div class="text-right mb-3">

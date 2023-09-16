@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.core.paginator import Paginator
 from app.models import *
 
 
@@ -28,6 +28,10 @@ def getHome(request):
         show_manage = 'none'
 
     products = Product.objects.all()
+    paginator = Paginator(products, 8)  # Chia danh sách sản phẩm thành các trang, mỗi trang có 8 sản phẩm
+
+    page_number = request.GET.get('page')  # Lấy số trang từ tham số truy vấn URL
+    page = paginator.get_page(page_number)  # Lấy trang hiện tại
     total_all = 0
     count = 0
     if request.user.is_authenticated:
@@ -55,7 +59,9 @@ def getHome(request):
                'user_not_login': user_not_login,
                'categories': categories,
                'active_category': active_category,
-               'show_manage': show_manage}
+               'show_manage': show_manage,
+               'page': page,
+               }
     return render(request, 'app/home.html', context)
 
 

@@ -28,16 +28,16 @@
                             <td> <img style="height: 80px; width: auto;" src="{{item.product.ImageURL}}"/> </td>
                             <td>{{item.product.name}}</td>
                             <td>{{item.size}}</td>
-                            <td>{{item.product.price | floatformat:0}} VNĐ</td>
+                            <td>{{item.product.price | floatformat}} VNĐ</td>
                             <td>{{item.quantity}}</td>
-                            <td>{{ item.total | floatformat:0 }} VNĐ</td>
+                            <td>{{ item.total | floatformat }} VNĐ</td>
 
                           </tr>
                           {% endfor %}
                         </tbody>
                       </table>
                       <div class="text-right">
-                        <h4>Tổng cộng: {{total_all | floatformat:0}} VNĐ</h4>
+                        <h4>Tổng cộng: {{total_all | floatformat}} VNĐ</h4>
                       </div>
                 </div>
                 <div class="shoping__cart__btns">

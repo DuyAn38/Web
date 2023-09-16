@@ -4,7 +4,7 @@ from .models import *
 class ProductsAPI(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['name', 'category', 'price', 'price_sale', 'describe', 'digital', 'image', 'unit', 'count']
+        fields = ['name', 'category', 'price', 'price_sale', 'describe', 'digital', 'image','image1','image2','image3','image4', 'unit', 'count']
 
 
 class CategoryAPI(serializers.ModelSerializer):
