@@ -20,7 +20,8 @@ from .python.app.search import searchProduct
 from .python.app.updateItem import updateItem
 from .python.app.myOrder import  myOrder
 from .python.app.manage_address import addAddress, editAddress, deleteAddress
-
+from .python.app.blog import blog
+from .python.app.contact import contact
 
 # admin
 from .python.admin.manage import Manage

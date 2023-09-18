@@ -112,10 +112,10 @@
                                         {{ user.last_name }}
                                     </td>
                                     
-                                    {% comment %} <td>
+                                    <td>
                                         <a href="{% url 'editProduct' %}?id={{ product.id }}" class="btn btn-primary btn-sm">xem</a>
                                         <a href="{% url 'deleteCategory' %}?id={{ product.id }}" class="btn btn-danger btn-sm">Xóa</a>
-                                    </td> {% endcomment %}
+                                    </td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

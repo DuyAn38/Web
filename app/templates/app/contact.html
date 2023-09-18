@@ -1,0 +1,133 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block contact %}
+<body>
+    <div class="container"  style="margin: 10px auto; text-align: center;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.0226237656334!2d105.80380607527212!3d21.585039980207114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31352738b1bf08a3%3A0x515f4860ede9e108!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgVGjDtG5nIHRpbiAmIFRydXnhu4FuIHRow7RuZyBUaMOhaSBOZ3V5w6pu!5e0!3m2!1svi!2s!4v1695042537179!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</body>
+
+<style>
+    #map-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70vh; /* Điều chỉnh chiều cao theo ý muốn */
+        border-radius: 20px;
+    }
+    
+    #map {
+        width: 200%; /* Điều chỉnh chiều rộng của bản đồ */
+        height: 80%; /* Điều chỉnh chiều cao của bản đồ */
+    }
+    
+    iframe {
+        border-radius: 20px;
+        margin-top: 15px;
+    }
+    
+</style>
+<div class="row">
+    <div class="col-lg-3">
+        <div class="contact_info">
+            <div class="info_item">
+                <i class="lnr lnr-home"></i>
+                <h6>Thái Nguyên</h6>
+                <p>Đường z115 Quyết Thắng, Thành phố Thái Nguyên, Thái Nguyên </p>
+            </div>
+            <div class="info_item">
+                <i class="lnr lnr-phone-handset"></i>
+                <h6><a href="#">0383347386</a></h6>
+                <p>Thứ Hai - thứ Sáu. 7 giờ sáng - 6 giờ chiều</p>
+            </div>
+            <div class="info_item">
+                <i class="lnr lnr-envelope"></i>
+                <h6><a href="#">Cyrochi</a></h6>
+                <p>Gửi cho chúng tôi vấn đề của bạn của bạn bất cứ lúc nào!</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-9">
+        <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Tên" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="hòm thư" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Tiêu đề" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <textarea class="form-control" name="message" id="message" rows="4" placeholder="vấn đề của bạn " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'"></textarea>
+                </div>
+            </div>
+            <div class="col-md-12 text-right">
+                <button type="submit" value="submit" class="primary-btn">Gửi</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Định dạng phần giao diện của biểu mẫu liên hệ */
+    .contact_info {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .info_item {
+        margin-bottom: 20px;
+    }
+
+    .info_item h6 {
+        font-size: 18px;
+        margin: 5px 0;
+    }
+
+    .info_item p {
+        margin: 0;
+    }
+
+    .contact_form {
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .primary-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .primary-btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+{% endblock contact %}

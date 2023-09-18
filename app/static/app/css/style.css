@@ -59,7 +59,7 @@ h2 {
 }
 
 h3 {
-	font-size: 30px;
+	font-size: 20px;
 }
 
 h4 {
@@ -272,7 +272,7 @@ ol {
 	top: 1px;
 	height: 20px;
 	width: 1px;
-	background: #000000;
+	/* background: #000000; */
 	opacity: 0.1;
 	content: "";
 }
@@ -3468,4 +3468,7 @@ ol {
 	.blog__details__hero__text h2 {
 		font-size: 24px;
 	}
+
 }
+
+/* Đặt kích thước cho bản đồ */

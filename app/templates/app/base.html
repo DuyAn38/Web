@@ -23,7 +23,9 @@
         <link rel="stylesheet" href="{%static 'app/css/style.css' %}">
         <link rel="stylesheet" href="{%static 'app/sass/style.scss' %}">
 
-
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <link rel="stylesheet" href="styles.css">
+        
         <script type="text/javascript" >
           var user = '{{request.user}}'
           function getCookie(name) {
@@ -46,47 +48,6 @@
 
     </head>
     <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            {% comment %} <a href="#"><img src="img/logo.png" alt=""></a> {% endcomment %}
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>150.00VNĐ</span></div>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__auth">
-                <a href="{% url 'login' %}"><i class="fa fa-user"></i> Đăng Nhập</a>
-            </div>
-        </div>
-        
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> Hotline đặt hàng: 0999999999</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Humberger End -->
-
-    <!-- Header Section Begin -->
-    
-
     <header class="header">
         <div class="header__top">
             <div class="container">
@@ -187,6 +148,13 @@
                                     </div>
                                 </li>
 
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'contact' %}">Liên hệ</a>
+                                </li>
 
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -204,8 +172,6 @@
                                         <a class="dropdown-item" href="#">Bảng đánh giá nhận diện tình trạng sản phẩm đã qua sử dụng</a>
                                     </div>
                                 </li>
-                                
-
                             </ul>
                         </div>
                     </div>
@@ -237,7 +203,8 @@
           {% block edit_address %}{% endblock edit_address %}
           {% block edit_information %}{% endblock edit_information %}
           {% block my_order %}{% endblock my_order %}
-
+          {% block blog %}{% endblock blog %}
+          {% block contact %}{% endblock contact %}
 
           <footer id="footer" class="section section-grey">
             <!-- container -->
@@ -427,6 +394,8 @@ p {
     <script src="{%static 'app/js/mixitup.min.js' %} "></script>
     <script src="{%static 'app/js/owl.carousel.min.js' %} "></script>
     <script src="{%static 'app/js/main.js' %} "></script>
+
+
 
 
 
